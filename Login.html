@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-<h1>Login</h1>
-	<form>
-		<label for="MobileNumber">Enter the Mobile Number:</label> <input
-			type="text" name="mobileNumber" id="mobileNumber" required><br />
-		<br /> <label for="password">Enter the Password:</label> <input
-			type="text" name="Password" id="Password" required><br /></br>
-		<button>Submit</button>
-
-	</form>
+    <form onsubmit="login()">
+    <h1>Welcome To My Acccount Login</h1>
+    Username:<input type="text" name="username" id="username" placeholder="Enter username here" required autofocus><br/><br/>
+    Password:<input type="password" name="password" id="password" placeholder="Enter Password here"  required autofocus><br/><br/>
+    <button type="submit">Login</button>
+    <button type="reset" onclick="clear()">Reset</button>
+    </form>
+    <script>
+       function login()
+       {
+           event.preventDefault();
+           alert("login button clicked");
+           let username=document.querySelector("#username").value;
+           let password=document.querySelector("#password").value;
+if(username.trim()=="")
+{
+    alert("Please Enter the username");
+}
+else if(password.split(' ').join('')=="")
+{
+    alert("Please enter the Password");
+}
+else if(password<6)
+{
+    alert("Must contain Atleast 6 characters");
+}
+else
+{
+    alert("login successfully");
+       }
+             
+       
+       }
+    function clear()
+    {
+       
+       document.querySelector("#username").value=="";
+       document.querySelector("#password").value=="";
+    }
+    </script>
 </body>
 </html>
